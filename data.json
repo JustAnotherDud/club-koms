@@ -1,5 +1,5 @@
 {
- "gerado": "2026-08-22T05:51Z",
+ "gerado": "2026-08-23T05:53Z",
  "linhas": [
   {
    "posicao": 3,
@@ -2671,6 +2671,20 @@
    "elev_m": 41,
    "tempo": "4:00",
    "data": "2024-07-13",
+   "atleta": "Xeira",
+   "cidade": "Santarém",
+   "pais": "Portugal"
+  },
+  {
+   "posicao": 10,
+   "tipo": "Run",
+   "segmento": "Ciclovia S. Domingos / V. Estacas",
+   "url": "https://www.strava.com/segments/11211348",
+   "effort_url": "https://www.strava.com/segment_efforts/3526305482119114700",
+   "dist_km": 1.92,
+   "elev_m": 16,
+   "tempo": "8:24",
+   "data": "2026-08-22",
    "atleta": "Xeira",
    "cidade": "Santarém",
    "pais": "Portugal"
