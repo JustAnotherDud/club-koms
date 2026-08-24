@@ -1,5 +1,5 @@
 {
- "gerado": "2026-08-23T05:53Z",
+ "gerado": "2026-08-24T06:01Z",
  "linhas": [
   {
    "posicao": 3,
@@ -167,6 +167,34 @@
    "data": "2026-03-25",
    "atleta": "Inês",
    "cidade": "Alcobaça",
+   "pais": "Portugal"
+  },
+  {
+   "posicao": 1,
+   "tipo": "Run",
+   "segmento": "S Domingos / Galp",
+   "url": "https://www.strava.com/segments/13842203",
+   "effort_url": "https://www.strava.com/segment_efforts/3526736485500252404",
+   "dist_km": 1.32,
+   "elev_m": 11,
+   "tempo": "5:04",
+   "data": "2026-08-23",
+   "atleta": "Xeira",
+   "cidade": "Santarém",
+   "pais": "Portugal"
+  },
+  {
+   "posicao": 1,
+   "tipo": "Run",
+   "segmento": "Ciclovia S. Domingos / V. Estacas",
+   "url": "https://www.strava.com/segments/11211348",
+   "effort_url": "https://www.strava.com/segment_efforts/3526736485497820404",
+   "dist_km": 1.92,
+   "elev_m": 16,
+   "tempo": "7:09",
+   "data": "2026-08-23",
+   "atleta": "Xeira",
+   "cidade": "Santarém",
    "pais": "Portugal"
   },
   {
@@ -2676,15 +2704,15 @@
    "pais": "Portugal"
   },
   {
-   "posicao": 10,
+   "posicao": 3,
    "tipo": "Run",
-   "segmento": "Ciclovia S. Domingos / V. Estacas",
-   "url": "https://www.strava.com/segments/11211348",
-   "effort_url": "https://www.strava.com/segment_efforts/3526305482119114700",
-   "dist_km": 1.92,
-   "elev_m": 16,
-   "tempo": "8:24",
-   "data": "2026-08-22",
+   "segmento": "Ciclovia NS Fatima",
+   "url": "https://www.strava.com/segments/13779792",
+   "effort_url": "https://www.strava.com/segment_efforts/3526736485499853044",
+   "dist_km": 0.78,
+   "elev_m": 17,
+   "tempo": "2:43",
+   "data": "2026-08-23",
    "atleta": "Xeira",
    "cidade": "Santarém",
    "pais": "Portugal"
