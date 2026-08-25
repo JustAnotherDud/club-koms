@@ -1,5 +1,5 @@
 {
- "gerado": "2026-08-24T06:01Z",
+ "gerado": "2026-08-25T05:56Z",
  "linhas": [
   {
    "posicao": 3,
@@ -39,6 +39,20 @@
    "elev_m": 4,
    "tempo": "0:52",
    "data": "2025-04-13",
+   "atleta": "Carolina",
+   "cidade": "Santarém",
+   "pais": "Portugal"
+  },
+  {
+   "posicao": 2,
+   "tipo": "Run",
+   "segmento": "#AP | Rua Limões 20m UP",
+   "url": "https://www.strava.com/segments/31139159",
+   "effort_url": "https://www.strava.com/segment_efforts/3527013484767409250",
+   "dist_km": 0.27,
+   "elev_m": 21,
+   "tempo": "1:54",
+   "data": "2026-08-24",
    "atleta": "Carolina",
    "cidade": "Santarém",
    "pais": "Portugal"
