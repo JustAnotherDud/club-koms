@@ -1,5 +1,5 @@
 {
- "gerado": "2026-08-25T05:56Z",
+ "gerado": "2026-08-26T05:58Z",
  "linhas": [
   {
    "posicao": 3,
@@ -39,6 +39,34 @@
    "elev_m": 4,
    "tempo": "0:52",
    "data": "2025-04-13",
+   "atleta": "Carolina",
+   "cidade": "Santarém",
+   "pais": "Portugal"
+  },
+  {
+   "posicao": 2,
+   "tipo": "Run",
+   "segmento": "#AP | Rua dos Limões DOWN",
+   "url": "https://www.strava.com/segments/31531760",
+   "effort_url": "https://www.strava.com/segment_efforts/3527410552612673786",
+   "dist_km": 0.28,
+   "elev_m": 22,
+   "tempo": "1:26",
+   "data": "2026-08-25",
+   "atleta": "Carolina",
+   "cidade": "Santarém",
+   "pais": "Portugal"
+  },
+  {
+   "posicao": 2,
+   "tipo": "Run",
+   "segmento": "#AP | Sprint N114 até Cruzamento",
+   "url": "https://www.strava.com/segments/31139219",
+   "effort_url": "https://www.strava.com/segment_efforts/3527410552611906810",
+   "dist_km": 0.45,
+   "elev_m": 2,
+   "tempo": "2:25",
+   "data": "2026-08-25",
    "atleta": "Carolina",
    "cidade": "Santarém",
    "pais": "Portugal"
