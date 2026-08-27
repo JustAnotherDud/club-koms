@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
-"""comum.py — utilitários partilhados por scrape.py e make_data.py.
+"""comum.py — utilitários partilhados por scrape.py e scrape_prs.py.
 
-Centraliza o que antes estava duplicado nos dois scripts:
+Centraliza o que antes estava duplicado nos scripts:
 - parsing de datas no formato do Strava ("Jul 10, 2025")
 - normalização do campo "tempo" (vinha misto: "25s" / "2:29" / "1:20:16")
 - lookup de cidade/país por segmento, com cache em disco (localizacoes.json)

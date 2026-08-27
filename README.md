@@ -1,32 +1,66 @@
 # Folha do Clube
 
-Ranking de KOMs/CRs e Top10s do clube, a partir de scraping das páginas `/segments/leader` do Strava — mais Best Efforts de corrida e estatísticas Squadrats. Publicado via GitHub Pages.
+Daily KOM/CR and Top-10 ranking for my running club, scraped from Strava's
+`/segments/leader` pages — plus running Best Efforts and Squadrats stats.
+Published via GitHub Pages.
 
-## Como os dados são actualizados
+Internal club tool: it reads Strava through my own authenticated session, with
+the members' knowledge, at a daily cron cadence — not a general-purpose
+scraper.
 
-**Automático**, via `.github/workflows/update.yml`: corre todos os dias às 05:30 UTC (e também por `workflow_dispatch`, manualmente), executa `scrape.py` + `scrape_prs.py`, e só dá commit/push se algo mudou de facto. Não é preciso fazer nada à mão no dia a dia.
+Sister project:
+[kom-hunter](https://github.com/JustAnotherDud/kom-hunter) — same code origin
+(`comum.py`), different purpose: finds Run segments where a KOM looks
+reachable.
 
-Manual, só se precisares de forçar uma actualização fora da hora do cron ou testar localmente:
+## How the data is updated
+
+**Automatic**, via `.github/workflows/update.yml`: runs every day at 05:30 UTC
+(and on `workflow_dispatch`, manually), runs `scrape.py` + `scrape_prs.py`,
+and only commits/pushes if something actually changed. Nothing to do by hand
+day to day.
+
+Manual, only to force an update outside the cron window or to test locally:
 
 ```
-STRAVA_SESSION=<cookie _strava4_session> python scrape.py
-STRAVA_SESSION=<cookie _strava4_session> python scrape_prs.py
+STRAVA_SESSION=<_strava4_session cookie> python scrape.py
+STRAVA_SESSION=<_strava4_session cookie> python scrape_prs.py
 ```
 
-`make_data.py` é um caminho manual antigo, anterior ao workflow automático — não corre no CI, mantido só por referência.
+`STRAVA_SESSION` is the authenticated session cookie (DevTools → Application →
+Cookies → strava.com → `_strava4_session`). Renew it manually when it expires.
 
-Pontos do ranking: posição 1 = 10 pts ... posição 10 = 1 pt (11 − posição).
+Ranking points: position 1 = 10 pts … position 10 = 1 pt (11 − position).
 
-## Campos novos (cidade/país + ritmo)
+## City/country + pace fields
 
-`scrape.py` também preenche `cidade` e `pais` por linha, a partir do `<title>` da página pública `/segments/<id>` (não precisa de login). Resultado fica em cache em `localizacoes.json` — só se pede à Strava o que ainda não está lá, por isso convém manter esse ficheiro versionado (o workflow já faz commit dele). Para forçar reconsulta de um segmento, apaga a entrada correspondente nesse ficheiro.
+`scrape.py` also fills `cidade` and `pais` per row, from the `<title>` of the
+public `/segments/<id>` page (no login needed). The result is cached in
+`localizacoes.json` — Strava is only asked for what isn't already there, so
+it's worth keeping that file versioned (the workflow already commits it). To
+force a re-fetch of a segment, delete its entry in that file.
 
-`tempo` vem sempre normalizado para `M:SS` ou `H:MM:SS` (antes vinha misto, ex. `"25s"` vs `"2:29"`). O ritmo (min/km para Run/Walk/Trail Run, km/h para Ride) é calculado no `index.html` a partir de `dist_km` + `tempo` + `tipo` — não está guardado no `data.json`. Nota: para segmentos muito curtos (sprints/rampas <300m) o ritmo calculado não é muito representativo, é normal parecer estranho.
+`tempo` always comes normalised to `M:SS` or `H:MM:SS` (it used to be mixed,
+e.g. `"25s"` vs `"2:29"`). Pace (min/km for Run/Walk/Trail Run, km/h for Ride)
+is computed in `index.html` from `dist_km` + `tempo` + `tipo` — it is not
+stored in `data.json`. Note: for very short segments (sprints/ramps <300m) the
+computed pace isn't very representative, so it's normal for it to look odd.
 
-Lógica partilhada entre `scrape.py` e `make_data.py` está em `comum.py`.
+Shared logic between `scrape.py` and `scrape_prs.py` lives in `comum.py`.
 
-## Best Efforts / PRs de corrida (`scrape_prs.py`)
+## Running Best Efforts / PRs (`scrape_prs.py`)
 
-Extrai o widget "Best Efforts" da sidebar do perfil de cada atleta e escreve `prs.json` — a mesma tabela que antes era mantida à mão na folha de cálculo do clube. A página `/athletes/<id>` é React (a tabela vem por JS, não está no HTML servido), por isso os dados vêm do endpoint AJAX `/athletes/<id>/profile_sidebar_comparison?hl=en-GB`, que só responde com o header `X-Requested-With: XMLHttpRequest`. Corre com a mesma sessão do `scrape.py`.
+Extracts the "Best Efforts" widget from each athlete's profile sidebar and
+writes `prs.json` — the same table the club used to maintain by hand in a
+spreadsheet. The `/athletes/<id>` page is React (the table comes in via JS,
+it's not in the served HTML), so the data comes from the AJAX endpoint
+`/athletes/<id>/profile_sidebar_comparison?hl=en-GB`, which only responds with
+the `X-Requested-With: XMLHttpRequest` header. Runs with the same session as
+`scrape.py`.
 
-Não é o "All-Time PRs" (esse é preenchido manualmente pelo atleta) nem cobre bike — a Strava não tem um widget agregado de Best Efforts por distância para Ride, só a Power Curve, que é outra coisa. O `index.html` mostra o resultado numa tabela "Best Efforts 🏃" abaixo do ranking de KOMs, com o melhor tempo por distância destacado; carrega `prs.json` de forma opcional — a página de KOMs continua a funcionar normalmente antes da 1ª corrida do script (ficheiro ainda não existe).
+This is not the "All-Time PRs" (those are filled in manually by the athlete)
+and it doesn't cover bike — Strava has no aggregated Best-Efforts-by-distance
+widget for Ride, only the Power Curve, which is a different thing. `index.html`
+shows the result in a "Best Efforts 🏃" table below the KOM ranking, with the
+best time per distance highlighted; it loads `prs.json` optionally — the KOM
+page keeps working before the script's first run (file doesn't exist yet).
