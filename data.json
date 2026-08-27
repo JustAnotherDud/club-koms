@@ -1,5 +1,5 @@
 {
- "gerado": "2026-08-26T05:58Z",
+ "gerado": "2026-08-27T16:38Z",
  "linhas": [
   {
    "posicao": 3,
@@ -3961,6 +3961,20 @@
    "data": "2024-09-23",
    "atleta": "Zé",
    "cidade": "Santarém",
+   "pais": "Portugal"
+  },
+  {
+   "posicao": 8,
+   "tipo": "Run",
+   "segmento": "Ciclovia | Matias -> Mota-Engil",
+   "url": "https://www.strava.com/segments/41521492",
+   "effort_url": "https://www.strava.com/segment_efforts/3527655580494450994",
+   "dist_km": 1.98,
+   "elev_m": 4,
+   "tempo": "7:51",
+   "data": "2026-08-26",
+   "atleta": "Zé",
+   "cidade": "Rio Maior",
    "pais": "Portugal"
   },
   {
