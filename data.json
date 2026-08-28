@@ -1,5 +1,5 @@
 {
- "gerado": "2026-08-28T10:34Z",
+ "gerado": "2026-08-28T17:33Z",
  "linhas": [
   {
    "posicao": 3,
@@ -3163,6 +3163,20 @@
    "data": "2026-04-08",
    "atleta": "Xeira",
    "cidade": "Valencia",
+   "pais": "Spain"
+  },
+  {
+   "posicao": 3,
+   "tipo": "Run",
+   "segmento": "Caravantes a Fly Toledo",
+   "url": "https://www.strava.com/segments/42094215",
+   "effort_url": "https://www.strava.com/segment_efforts/3528415033894654158",
+   "dist_km": 0.92,
+   "elev_m": 40,
+   "tempo": "3:06",
+   "data": "2026-04-06",
+   "atleta": "Xeira",
+   "cidade": "Toledo",
    "pais": "Spain"
   },
   {
