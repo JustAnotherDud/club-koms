@@ -370,9 +370,14 @@ function escHtml(s) {
   return String(s).replace(/[&<>"']/g,
     c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
 }
-// cores fixas da sheet (ajustadas p/ dark) + paleta para o resto do clube
-const CORES_FIXAS = { "Xeira": "#8e24aa", "Zé": "#c62828",
-                      "Carolina": "#b8a000", "Ana": "#00838f" };
+// Cores de identidade dos membros: fonte única em
+// squadrats-map/data/membros_cores.json (partilhada com o club.html do mapa),
+// carregada em runtime mais abaixo. Isto é só o fallback offline — mesma
+// paleta, para o site não ficar sem cor se a fetch falhar. O resto do clube
+// (quem não está nesta lista) continua a apanhar cor por hash de PALETA.
+let CORES_FIXAS = { "Zé": "#e03131", "Xeira": "#9c46d8",
+                    "Carolina": "#c99a00", "Inês S.": "#e8710a",
+                    "Inês": "#e8710a", "Ana": "#12889c", "Pedro": "#2f5fd0" };
 const PALETA = ["#2e7d32", "#1565c0", "#e65100", "#5d4037",
                 "#37474f", "#6a1b9a", "#00695c", "#9e9d24"];
 function corAtleta(n) {
@@ -627,7 +632,15 @@ document.querySelectorAll("#tabela th[data-k]").forEach(th =>
 document.querySelectorAll(".filtros select, .filtros input").forEach(el =>
   el.addEventListener("input", render));
 
-fetch("data.json").then(r => r.json()).then(d => {
+// Cores dos membros da fonte única (branch main do squadrats-map). Sobrepõe o
+// fallback offline de CORES_FIXAS; se falhar, fica o fallback e o site abre na
+// mesma. Não bloqueia o render principal se o data.json chegar primeiro.
+const CORES_URL = "https://raw.githubusercontent.com/JustAnotherDud/squadrats-map/main/data/membros_cores.json";
+Promise.all([
+  fetch("data.json").then(r => r.json()),
+  fetch(CORES_URL, { cache: "no-cache" }).then(r => r.ok ? r.json() : null).catch(() => null),
+]).then(([d, c]) => {
+  if (c && c.cores) CORES_FIXAS = { ...CORES_FIXAS, ...c.cores };
   linhas = d.linhas;
   for (const l of linhas) l.vel_kmh = velKmh(l);
   // gerado vem em UTC ("...Z"); mostrar em hora local pt-PT
