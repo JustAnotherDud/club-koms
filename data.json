@@ -1,5 +1,5 @@
 {
- "gerado": "2026-09-02T09:47Z",
+ "gerado": "2026-09-03T10:00Z",
  "linhas": [
   {
    "posicao": 3,
@@ -3978,15 +3978,15 @@
    "pais": "Portugal"
   },
   {
-   "posicao": 8,
+   "posicao": 5,
    "tipo": "Run",
    "segmento": "Ciclovia | Matias -> Mota-Engil",
    "url": "https://www.strava.com/segments/41521492",
-   "effort_url": "https://www.strava.com/segment_efforts/3527655580494450994",
+   "effort_url": "https://www.strava.com/segment_efforts/3530198669766665662",
    "dist_km": 1.98,
    "elev_m": 4,
-   "tempo": "7:51",
-   "data": "2026-08-26",
+   "tempo": "7:30",
+   "data": "2026-09-02",
    "atleta": "Zé",
    "cidade": "Rio Maior",
    "pais": "Portugal"
