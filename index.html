@@ -315,16 +315,13 @@
           <th data-c="yardinho" data-tip="Igual ao Yard, mas na grelha dos squadratinhos.">Yardinho</th>
           <th data-c="ubersquadrat" data-tip="Maior quadrado totalmente preenchido, em squadrats.">Übersquadrat</th>
           <th data-c="ubersquadratinho" data-tip="Maior quadrado totalmente preenchido, em squadratinhos.">Übersquadratinho</th>
-          <th data-c="backyards" data-tip="Nº de CLUSTERS fechados (não de squares!), incluindo o próprio Yard. Ex: 10 backyards = o yard principal + 9 clusters secundários, muitos deles com um único square.">Backyards</th>
-          <th data-c="backyardinhos" data-tip="Igual aos Backyards, mas na grelha dos squadratinhos: nº de clusters, incluindo o Yardinho.">Backyardinhos</th>
         </tr></thead>
         <tbody></tbody>
       </table>
 
       <div class="panel-meta" style="margin-top:14px;">
         Squares capturados na app <a href="https://squadrats.com" target="_blank" rel="noopener">Squadrats</a>.
-        Passa o rato sobre os cabeçalhos para ver o que cada coluna conta —
-        <b>Backyards</b> conta <i>clusters</i>, não squares.
+        Passa o rato sobre os cabeçalhos para ver o que cada coluna conta.
         <span id="squadrats-gerado"></span>
       </div>
     </div>
@@ -686,11 +683,10 @@ function fmtSquadratsValor(campo, v) {
   return CAMPOS_UBER.has(campo) ? `${v}x${v}` : v;
 }
 const CAMPOS_SQUADRATS = ["squadrats", "squadratinhos", "yard", "yardinho",
-  "ubersquadrat", "ubersquadratinho", "backyards", "backyardinhos"];
+  "ubersquadrat", "ubersquadratinho"];
 const LABEL_SQUADRATS = {
   squadrats: "Squadrats", squadratinhos: "Squadratinhos", yard: "Yard", yardinho: "Yardinho",
   ubersquadrat: "Übersquadrat", ubersquadratinho: "Übersquadratinho",
-  backyards: "Backyards", backyardinhos: "Backyardinhos",
 };
 let squadratsData = null;
 let metricaSquadrats = "squadrats"; // coluna que manda no pódio e na ordem da tabela
