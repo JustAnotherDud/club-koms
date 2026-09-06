@@ -1,5 +1,5 @@
 {
- "gerado": "2026-09-05T09:12Z",
+ "gerado": "2026-09-06T09:34Z",
  "linhas": [
   {
    "posicao": 3,
@@ -2741,6 +2741,20 @@
    "elev_m": 41,
    "tempo": "4:00",
    "data": "2024-07-13",
+   "atleta": "Xeira",
+   "cidade": "Santarém",
+   "pais": "Portugal"
+  },
+  {
+   "posicao": 7,
+   "tipo": "Run",
+   "segmento": "Portas do Sol",
+   "url": "https://www.strava.com/segments/38054338",
+   "effort_url": "https://www.strava.com/segment_efforts/3531346607186192984",
+   "dist_km": 1.91,
+   "elev_m": 6,
+   "tempo": "7:46",
+   "data": "2026-09-05",
    "atleta": "Xeira",
    "cidade": "Santarém",
    "pais": "Portugal"
